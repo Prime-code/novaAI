@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nova AI - Immersive Voice Experience</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            nova: {
+              navy: '#000b18',
+              deep: '#00152a',
+              gold: '#D4AF37',
+              accent: '#0070f3',
+              glow: 'rgba(0, 112, 243, 0.4)'
+            }
+          },
+          animation: {
+            'orb-pulse': 'orbPulse 4s ease-in-out infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'spin-slow': 'spin 12s linear infinite',
+          },
+          keyframes: {
+            orbPulse: {
+              '0%, 100%': { transform: 'scale(1)', opacity: '0.5' },
+              '50%': { transform: 'scale(1.1)', opacity: '0.8' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600;800&display=swap');
+    
+    body { 
+      background-color: #000b18;
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow: hidden;
+    }
+
+    .orb-glow {
+      box-shadow: 0 0 80px 20px rgba(0, 112, 243, 0.3);
+    }
+
+    .markdown-content p { margin-bottom: 1rem; line-height: 1.7; opacity: 0.9; }
+    .markdown-content ul { list-style-type: none; margin-bottom: 1rem; }
+    .markdown-content li { position: relative; padding-left: 1.5rem; margin-bottom: 0.5rem; }
+    .markdown-content li::before { content: '•'; position: absolute; left: 0; color: #D4AF37; }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .mesh-gradient {
+      background-image: 
+        radial-gradient(at 0% 0%, hsla(210,100%,15%,1) 0, transparent 50%), 
+        radial-gradient(at 50% 0%, hsla(220,100%,10%,1) 0, transparent 50%), 
+        radial-gradient(at 100% 0%, hsla(200,100%,15%,1) 0, transparent 50%);
+    }
+
+    .orb-active {
+      filter: drop-shadow(0 0 15px #D4AF37);
+    }
+
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { 
+      background: rgba(255, 255, 255, 0.1); 
+      border-radius: 10px; 
+    }
+    .custom-scrollbar:hover::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@google/genai": "https://esm.sh/@google/genai@^1.35.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react-markdown": "https://esm.sh/react-markdown@^10.1.0"
+  }
+}
+</script>
+</head>
+<body class="mesh-gradient min-h-screen">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
